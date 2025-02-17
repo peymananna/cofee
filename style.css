@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazirmatn', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f1e5;
+    color: #3e2723;
+    text-align: center;
+    font-size: 16px;
+}
+
+header {
+    background-color: #6f4e37;
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc80;
+}
+
+section {
+    padding: 100px 20px;
+    margin-top: 60px;
+}
+
+#home {
+    background: url('your-background-image.jpg') no-repeat center center/cover;
+    text-align: center;
+}
+
+.menu-item {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#contact {
+    background-color: #6f4e37;
+    color: white;
+    padding: 50px 20px;
+}
+
+#menu {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+#menu.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* استایل پس‌زمینه لودینگ */
+.loader-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #6f4e37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+/* دایره چرخان لودینگ */
+.loader {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #ffcc80;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+}
+
+/* متن بارگذاری */
+.loading-text {
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    animation: fade 1.5s ease-in-out infinite alternate;
+}
+
+/* انیمیشن چرخش */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* انیمیشن چشمک‌زدن متن */
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* مخفی کردن تمام بخش‌ها در ابتدا */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* وقتی بخش وارد صفحه شد */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* استایل کلی برای تصاویر منو */
+.menu-images {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.menu-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+/* انیمیشن خاص برای اولین تصویر */
+.menu-item:nth-child(1):hover img {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.menu-item:nth-child(1):hover p {
+    opacity: 1;
+}
+
+/* انیمیشن خاص برای دومین تصویر */
+.menu-item:nth-child(2):hover img {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.menu-item:nth-child(2):hover p {
+    opacity: 1;
+}
+
+/* انیمیشن خاص برای سومین تصویر */
+.menu-item:nth-child(3):hover img {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.menu-item:nth-child(3):hover p {
+    opacity: 1;
+}
+
+/* وقتی بر روی هر آیتم هاور می‌کنیم */
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* استایل کلی برای بخش بلاگ */
+#blog {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#blog h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* استایل برای مقالات */
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+/* استایل برای هر کارت مقاله */
+.article-item {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-item:hover {
+    transform: translateY(-10px); /* انیمیشن برای بلند شدن */
+}
+
+.article-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-item h3 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.article-item p {
+    font-size: 1rem;
+    color: #777;
+    padding: 0 20px;
+}
+
+/* استایل برای دکمه‌ها */
+.article-item a {
+    display: block;
+    text-align: center;
+    background-color: #ff6f00;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.article-item a:hover {
+    background-color: #ff8c00;
+}
+
+/* استایل برای بخش خانگی */
+
+/* استایل برای عنوان */
+#home h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white; /* تغییر رنگ متن */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* افکت سایه برای بهتر دیده شدن */
+    animation: type 3s steps(30) 1s forwards; /* انیمیشن تایپ شدن */
+}
+
+/* استایل برای پاراگراف */
+#home p {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    animation: type 3s steps(25) 2s forwards; /* انیمیشن تایپ شدن برای پاراگراف */
+}
+
+/* انیمیشن تایپ شدن */
+@keyframes type {
+    from {
+        width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* استایل برای دستگاه‌های کوچک‌تر (تا 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .menu-item {
+        width: 80%;
+    }
+
+    #home h2 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    .menu-images {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .article-item {
+        width: 90%;
+    }
+
+    #blog h2 {
+        font-size: 2rem;
+    }
+}
+
+/* استایل برای دستگاه‌های خیلی کوچک‌تر (تا 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .menu-item {
+        width: 90%;
+    }
+
+    #home h2 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    .article-item {
+        width: 100%;
+    }
+
+    #blog h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* استایل کلی برای منو */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+/* آیتم‌های منو */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* لینک‌های منو */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* حالت هاور */
+nav ul li a:hover {
+    color: #ffcc80;
+}
+
+/* منوی همبرگر */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* وقتی منوی همبرگر نمایش داده می‌شود */
+.navbar-responsive {
+    display: block;
+    background-color: #6f4e37;
+    position: absolute;
+    top: 60px; /* فاصله از بالا */
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 15px;
+    text-align: center;
+}
+
+/* پنهان کردن آیتم‌های منو در حالت موبایل */
+.navbar-responsive ul {
+    display: block;
+}
+
+.navbar-responsive ul li {
+    margin: 10px 0;
+}
+
+.navbar-responsive ul li a {
+    color: #ffcc80;
+}
+
+/* استایل برای حالت موبایل */
+@media (max-width: 768px) {
+    /* مخفی کردن منو در حالت موبایل */
+    nav ul {
+        display: none;
+    }
+
+    /* نمایش دکمه همبرگر */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* وقتی منوی همبرگر کلیک می‌شود */
+    .navbar-responsive.show {
+        display: block;
+    }
+}
